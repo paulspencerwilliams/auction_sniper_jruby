@@ -1,0 +1,2 @@
+class ApplicationRunner
+end

@@ -5,3 +5,4 @@ if ENV["JRUBY"] || RUBY_PLATFORM == "java"
 end
 
 gem 'rspec', '~> 3.1.0'
+gem 'backchat', '~> 0.0.2'

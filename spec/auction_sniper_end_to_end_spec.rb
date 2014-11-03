@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe "AuctionSniper" do
   auction = FakeAuctionServer.new 'item-54321'
   application = ApplicationRunner.new
