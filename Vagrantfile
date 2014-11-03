@@ -8,7 +8,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box      = 'ubuntu/trusty32'
   config.vm.hostname = 'rails-dev-box'
 
-  config.vm.network :forwarded_port, guest: 3000, host: 3000
+  config.vm.network :forwarded_port, guest: 5280, host: 5280
+  config.vm.network :forwarded_port, guest: 5222, host: 5222
 
   config.vm.provision :shell, path: 'couchdb.sh', keep_color: true
   config.vm.provision :shell, path: 'vine.sh', keep_color: true

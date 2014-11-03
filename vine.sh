@@ -13,12 +13,14 @@ apt-get -y update >/dev/null 2>&1
 
 install 'development tools' build-essential
 
-install Ruby ruby2.1 ruby2.1-dev
-update-alternatives --set ruby /usr/bin/ruby2.1 >/dev/null 2>&1
-update-alternatives --set gem /usr/bin/gem2.1 >/dev/null 2>&1
+install Ruby ruby1.9.3 ruby1.9.3-dev
+apt-get install -y ruby1.9.1-dev
+update-alternatives --set ruby /usr/bin/ruby1.9.3 >/dev/null 2>&1
+update-alternatives --set gem /usr/bin/gem1.9.3 >/dev/null 2>&1
 
 echo installing Bundler
 gem install bundler -N >/dev/null 2>&1
+gem install tzinfo -v 0.3.22
 gem install vines vines-agent vines-services
 #vines-services init wonderland.lit
 
