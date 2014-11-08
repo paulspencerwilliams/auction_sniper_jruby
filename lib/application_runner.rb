@@ -5,9 +5,7 @@ class ApplicationRunner
 
 
   def start_bidding_in(auction)
-    Thread.new do
-      Main.main(XMPP_HOSTNAME, SNIPER_ID, SNIPER_PASSWORD, auction.get_item_id())
-    end
+    Main.main(SNIPER_ID, SNIPER_PASSWORD, auction.item_id())
     @driver = AuctionSniperDriver.new(1000)
     @driver.shows_sniper_status(Main::STATUS_JOINING)
   end

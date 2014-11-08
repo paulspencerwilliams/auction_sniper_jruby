@@ -10,6 +10,8 @@ class FakeAuctionServer
     @messageListener = SingleMessageListener.new
     @item_id = item_id
   end
+  
+  attr_reader :item_id
 
   def start_selling_item
     @client = Blather::Client.setup item_id_as_login, AUCTION_PASSWORD
