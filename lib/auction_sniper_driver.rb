@@ -13,11 +13,11 @@ end
 
 class AuctionSniperDriver < JFrameDriver
   def initialize (timeoutMillis) 
-    super(GesturePerformer.new, JFrameDriver.topLevelFrame(self.class.named(Main::MAIN_WINDOW_NAME), self.class.showingOnScreen()), AWTEventQueueProber.new(timeoutMillis, 100))
+    super(GesturePerformer.new, JFrameDriver.top_level_frame(self.class.named(Main::MAIN_WINDOW_NAME), self.class.showing_on_screen()), AWTEventQueueProber.new(timeoutMillis, 100))
   end
 
-  def showsSniperStatus(statusText) 
-    JLabelDriver.new(self, self.class.named(Main::SNIPER_STATUS_NAME)).hasText(equalTo(statusText))
+  def shows_sniper_status(status_text) 
+    JLabelDriver.new(self, self.class.named(Main::SNIPER_STATUS_NAME)).has_text(equalTo(status_text))
   end
 
   def method_missing(method_name, *args, &block)
