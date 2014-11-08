@@ -5,6 +5,9 @@ echo installing $1
 shift
 apt-get -y install "$@" >/dev/null 2>&1
 }
+apt-get update
+
+apt-get -y install libssl-dev
 apt-get -y install libsqlite3-dev
 
 echo updating package information
