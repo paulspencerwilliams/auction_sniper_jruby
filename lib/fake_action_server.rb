@@ -1,4 +1,9 @@
 java_import 'java.util.concurrent.ArrayBlockingQueue'
+java_import 'java.util.concurrent.TimeUnit'
+java_import 'org.hamcrest.core.IsNull'
+java_import 'org.hamcrest.core.Is'
+java_import 'org.hamcrest.MatcherAssert'
+
 require 'blather/client/dsl'
 
 class FakeAuctionServer 
@@ -7,7 +12,7 @@ class FakeAuctionServer
   AUCTION_RESOURCE = 'Auction'
 
   def initialize item_id
-    @messageListener = SingleMessageListener.new
+    @message_listener = SingleMessageListener.new
     @item_id = item_id
   end
   
@@ -21,13 +26,13 @@ class FakeAuctionServer
       end
 
       client.register_handler :message do |m|
-        @messageListener.process_message m
+        @message_listener.process_message m
       end
     end
   end
 
   def has_received_join_request_from_snipper 
-    messageListener.receives_a_message
+    @message_listener.receives_a_message
   end
 
   def stop
@@ -48,6 +53,6 @@ class SingleMessageListener
   end
 
   def receives_a_message
-    assert_that("Message", messages.poll(5, SECONDS), is(not_null_value)) 
+    MatcherAssert.assert_that("Message", @messages.poll(5, TimeUnit::SECONDS), Is.is(IsNull.not_null_value)) 
   end
 end

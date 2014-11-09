@@ -1,7 +1,3 @@
-require 'javalib/hamcrest-all-SNAPSHOT.jar'
-require 'javalib/windowlicker-swing-DEV.jar'
-require 'javalib/windowlicker-core-DEV.jar'
-
 java_import com.objogate.wl.swing.driver.JFrameDriver
 java_import com.objogate.wl.swing.driver.JLabelDriver
 java_import com.objogate.wl.swing.gesture.GesturePerformer
